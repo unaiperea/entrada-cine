@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html lang="es">
+
+<head>
+
+  <base href="/entrada-cine/"> <!-- Se coge el Path de forma estática -->
+  <base href="<%=request.getContextPath()%>/"> <!-- Se coge el Path de forma dinámica -->
+  <!-- <base href="/hola-clase/"> Lo de arriba sustituye ésto -->
+  
+  <meta charset="utf-8">
+
+  <title>Calcular entradas</title>
+  <meta name="description" content="Calcula el precio de las entradas de cine">
+  <meta name="author" content="Unai Perea Cruz">
+
+  <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <link rel="stylesheet" type="text/css" href="css/styles.css?v=1.0">
+
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+</head>
+
+<body>
+
+<div id="container">
+
+	<div id="cabecera" class="clearfix">
+		<h1>!Calcula tu Entrada!</h1>
+	</div> <!-- div cabecera -->
+		
+	<div id="parametros">
+
+			<span id="span_dia"> <h2>D&iacute;a</h2> </span>
+			<select id="listaDias" id="caja_dia" onchange="calcularEntrada();" ></select>
+
+			<span id="span_edad"> <h2>Edad</h2> </span>
+			<input type="text" id="caja_edad" size="3" max-length="3" onkeypress="validarEdadEnter(event)" onblur="validar()">
+
+	</div> <!-- div cabecera -->
+	
+	
+	<script>
+	
+	function validarDiaEnter(evento){
+		if (event.keyCode==13){
+			//Comprobar
+			return validar();
+		}
+	}
+	
+	function validarDiaEnter(evento){
+		if (event.keyCode==13){
+			//Comprobar
+			return validar();
+		}
+	}
+	
+	function validarDia(){
+		
+	}
+	</script>
+	
+	<div id="imagen">
+		<img src="img/entrada_cine.jpg" id="entrada" alt="entrada_cine.jpg" title="Entrada">
+	</div> <!--  div imagen -->
+
+</div>	<!-- container -->
+ 
+ <!--  Custom JavaScript después de cargar todas las librerias  -->
+ <script src="js/main.js"></script>
+ 
+ </body>
+</html>
