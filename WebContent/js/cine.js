@@ -7,6 +7,53 @@
  CINE DE ALMENDRALEJO (PAG 283)
  ******************************************/
 
+		function validar(){
+			resul = false;
+			if (validarEdad()){
+				document.getElementById("precio").innerHTML = entradas(dia, edad);
+				}
+			return resul;
+		}
+		
+		function validarDiaEnter(evento){
+			if (event.keyCode==13){
+				//Comprobar
+				return validar();
+			}
+		}
+		
+		function validarEdad(){
+			var resul = false;
+			var sEdad = null;
+			var error = '';
+			sEdad = document.getElementById("caja_edad").value;
+			
+			if ((sEdad != null) && (sEdad != undefined) && !isNaN(sEdad)){
+				if ((sEdad >= 0) && (sEdad<100)){
+					resul = true;
+				}else{
+					error = "Introduce la edad entre 0 y 99 años\n";
+				}
+			} else{
+				error = "Introduce la edad entre 0 y 99 años\n";
+			}
+			
+			if (errores != ''){
+				alert(errores);
+			}
+			
+			return resul;
+		}
+		
+
+		// end:function entradas (dia,edad)
+
+
+
+
+
+
+
 /**
  * Calcula el precio de la entrada del Cine de Almendralejo
  * 
