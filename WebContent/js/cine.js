@@ -7,66 +7,16 @@
  CINE DE ALMENDRALEJO (PAG 283)
  ******************************************/
 
-		function validar(){
-			resul = false;
-			if (validarEdad()){
-				document.getElementById("precio").innerHTML = entradas(dia, edad);
-				}
-			return resul;
-		}
-		
-		function validarDiaEnter(evento){
-			if (event.keyCode==13){
-				//Comprobar
-				return validar();
-			}
-		}
-		
-		function validarEdad(){
-			var resul = false;
-			var sEdad = null;
-			var error = '';
-			sEdad = document.getElementById("caja_edad").value;
-			
-			if ((sEdad != null) && (sEdad != undefined) && !isNaN(sEdad)){
-				if ((sEdad >= 0) && (sEdad<100)){
-					resul = true;
-				}else{
-					error = "Introduce la edad entre 0 y 99 años\n";
-				}
-			} else{
-				error = "Introduce la edad entre 0 y 99 años\n";
-			}
-			
-			if (errores != ''){
-				alert(errores);
-			}
-			
-			return resul;
-		}
-		
-
-		// end:function entradas (dia,edad)
-
-
-
-
-
-
-
 /**
  * Calcula el precio de la entrada del Cine de Almendralejo
  * 
- * @param dia:
- *            Dia de la semana escrito en minusculas, ej:
- *            ['lunes','martes',...'domingo']
- * @param edad:
- *            edad de la persona que compra la entrada, formato numero entero
+ * @param dia: Dia de la semana escrito en minusculas, ej: ['lunes','martes',...'domingo']
+ * @param edad: edad de la persona que compra la entrada, formato numero entero
  * @return precio en euros, null si
  */
-function entradas(dia, edad) {
-	var precio = null;
-	if ((edad >= 0) && (!isNaN(edad))) {
+function calcularEntrada(dia, edad) {
+	var precio = "Error";
+	if ((edad != "") && (edad >= 0) && (!isNaN(edad))) {
 		switch (dia) {
 		case 'lunes':
 			if (edad <= 35) {
@@ -106,11 +56,28 @@ function entradas(dia, edad) {
 			precio = 10;
 			break;
 		default:
-			precio = "El dia o la edad no son correctos";
+			alert("El dia no es correcto");
 		}// end switch
 	} else {
-		precio = "El dia o la edad no son correctos";
+		alert("La edad no es correcta");
 	}
-	return precio;
+
+	document.getElementById("precio").innerHTML = precio;
+	
+	//return precio;
 }
 // end:function entradas (dia,edad)
+
+
+/**
+ * Permite introducir sólo números
+ * evento parámetro del tipo event (objeto) 
+ * return devuelve el caracter introducido en caso de ser un número entre 0 y 9
+ */
+ function justNumbers(evento){
+	 //Pregunta si el caracter recibido es >= 0 y <=9
+	 return evento.charCode >= 48 && evento.charCode <= 57;
+ }
+
+
+

@@ -11,22 +11,6 @@
 */
 @import url("reset.css");
 
-/***************************** 
-      ClearFix
-*******************************/
-.clearfix:before, .clearfix:after {
-	content: "";
-	display: table;
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.clearfix {
-	*zoom: 1;
-}
-
 /* 
 
    ETIQUETAS 
@@ -35,46 +19,39 @@
 */
 
 body{
-	font-size: 16px;
+	font-size: 16px; /*Valor de unidad em*/
 }
 
 #container{
 	width:300px;
-	min-height: 700px;
+	min-height: 400px;
 	border:1px solid black;
-	/*margin:0 auto; /* para centrarlo*/
+	margin:0 auto; /* para centrarlo*/
+}
+
+h2{
+	font-size:20px;
 }
 
 #span_dia{
-	/*float:left;
-	margin-left:20px;*/
+	float:left;
+	margin-left:25px;
 }
 
-#caja_dia{
-	
-	/*margin-left:10px;*/
+#lista_dias{
+	float:left;
+	margin-left:10px;
 }
 
 #span_edad{
-	/*float:left;*/
-	margin-right: auto;
+	float:left;
+	margin-left:20px;
 }
 
 #caja_edad{
-	/*float:left;*/
+	float:left;
 	margin-left:10px;
-	margin-right:20px;
-}
-
-#precio{
-	position: absolute;
-	botttom: 0px;
-	color: #FFF;
-	left: 20 px;
-	background-color: rgba (250, 245, 245, 0);
-	display: none;
-	display: block;
-	font-size: 80px;
+	height: 14px;
 }
 
 #calcular_entrada{
@@ -84,24 +61,31 @@ body{
 }
 
 #calcular_entrada header{
-	position: relative; /*porque sólo con la posición absoluta que hemos puesto antes no vale;*/ 
+	position: relative; /*De su posición original la movemos con height y width*/ 
 	height:50px;
 	width: 100%;
 	padding-top: 20px;
 }
 
-	#calcular_entrada #header h1{
+	#calcular_entrada header h1{
 		font-size: 25px;
 		color: #72b8c6;
 		font-family: 'Rum Raisin';
 		text-align: center;
-		
-		/*margin: 10px 0 20px;*/
 		}
 
 @font-face {
     font-family: 'Rum Raisin';
     src: url(http://fonts.googleapis.com/css?family=Rum+Raisin);
+}
+
+#calcular_entrada {
+  /* Quiero posicionar la sección footer de manera absoluta,
+  	 para ello coge la referencia de su contenedor/padre inmediato
+  	 si NO es posicion:static; (por defecto); espor ésto por lo
+  	 que lo ponemos absolute  
+  */
+  position: absolute;
 }
 
 #calcular_entrada #selectores{
@@ -110,7 +94,7 @@ body{
 }
 
 #calcular_entrada footer{
-	position: aboslute;
+	position: absolute;
 	padding: 6%;
 	width=:90%;
 	bottom: 0;
@@ -119,11 +103,11 @@ body{
 	font-family: Arial;
 }
 
-#calcular_entrada footer precio{
-	font-size: 2.5em; /*Relativas al font-size de body*/
-	position: absolute;
-	right: 20px;
-	bottom: 10px;
-}	
+	#calcular_entrada footer #precio{
+		font-size: 3em; /*Relativas al font-size de body*/
+		right: 20px;
+		bottom: 10px;
+		font-weight: 600;
+	}	
 
 

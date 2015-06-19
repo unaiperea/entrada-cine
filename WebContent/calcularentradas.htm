@@ -17,7 +17,7 @@
   <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   
-  <link rel="stylesheet" type="text/css" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" type="text/css" href="css/cine.css?v=1.0">
 
 
   <!--[if lt IE 9]>
@@ -39,22 +39,23 @@
 			<div id="selectores">
 		
 					<span id="span_dia"> <h2>D&iacute;a</h2> </span>
-					<select id="listaDias" id="caja_dia" onchange="validar();" >
+					<select id="lista_dias" onchange="calcularEntrada(lista_dias.value, caja_edad.value);" >
 						<option value="lunes">Lunes</option>
 						<option value="martes" selected>Martes</option>
-						<option value="miercoles">Mi&eacute;rcoles</option>
+						<option value="miercoles">Miercoles</option>
 						<option value="jueves">Jueves</option>
 						<option value="viernes">Viernes</option>
-						<option value="sabado">S&acute;bado</option>
+						<option value="sabado">Sabado</option>
 						<option value="domingo">Domingo</option>
 					</select>
 		
-					<span id="span_edad" value="16"> <h2>Edad</h2> </span>
-					<input type="text" id="caja_edad" size="2" max-length="2"
-						onkeypress="validarEdadEnter(event);" onblur="validar();"
-						input-pattern="[0-9]{1,2}" placeholder="16"/>
+					<span id="span_edad"> <h2>Edad</h2> </span>
+					<input type="text" id="caja_edad" size="2" maxlength="2"
+						onkeypress="return justNumbers(event);" onchange="calcularEntrada(lista_dias.value, caja_edad.value);"
+						pattern="[0-9]{1,2}" value="16"/>
 					
-					<script src="cine.js"></script>
+					<script type="text/javascript" src="js/cine.js"></script>
+					
 			</div> <!-- div selectores -->
 
 			<footer>
