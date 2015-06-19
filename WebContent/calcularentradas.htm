@@ -37,21 +37,31 @@
 	<div id="parametros">
 
 			<span id="span_dia"> <h2>D&iacute;a</h2> </span>
-			<select id="listaDias" id="caja_dia" onchange="calcularEntrada();" ></select>
+			<select id="listaDias" id="caja_dia" onchange="calcularEntrada();" >
+				<option value="lunes">Lunes</option>
+				<option value="martes" selected>Martes</option>
+				<option value="miercoles">Mi&eacute;rcoles</option>
+				<option value="jueves">Jueves</option>
+				<option value="viernes">Viernes</option>
+				<option value="sabado">S&acute;bado</option>
+				<option value="domingo">Domingo</option>
+			</select>
 
-			<span id="span_edad"> <h2>Edad</h2> </span>
-			<input type="text" id="caja_edad" size="3" max-length="3" onkeypress="validarEdadEnter(event)" onblur="validar()">
+			<span id="span_edad" value="16"> <h2>Edad</h2> </span>
+			<input type="text" id="caja_edad" size="2" max-length="2" onkeypress="validarEdadEnter(event)" onblur="validar()"/>
 
+			<span>PRECIO</span>
+			<span id="precio">2€</span>
+			
 	</div> <!-- div cabecera -->
 	
 	
 	<script>
 	
-	function validarDiaEnter(evento){
-		if (event.keyCode==13){
-			//Comprobar
-			return validar();
-		}
+	function validar(){
+		if (validadDia() && validarEdad()){
+			
+		}else
 	}
 	
 	function validarDiaEnter(evento){
@@ -64,6 +74,30 @@
 	function validarDia(){
 		
 	}
+	
+	function validarEdad(){
+		var resul = false;
+		var sEdad = null;
+		var error = '';
+		sEdad = document.getElementById("caja_edad").value;
+		
+		if ((sEdad != null) && (sEdad != undefined) && !isNaN(sEdad)){
+			if (sEdad >= 0) && (sEdad<100)){
+				resul = true;
+			}else{
+				error = "Introduce la edad entre 0 y 99 años\n";
+			}
+		} else{
+			error = "Introduce la edad entre 0 y 99 años\n";
+		}
+		
+		if (errores != ''){
+			alert(errores);
+		}
+		
+		return resul;
+	}
+	
 	</script>
 	
 	<div id="imagen">

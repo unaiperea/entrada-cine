@@ -53,20 +53,19 @@ h1{
 }
 
 #caja_dia{
-	float:left;
+	
 	margin-left:10px;
 }
 
 #span_edad{
 	float:left;
 	margin-right: auto;
-	
 }
 
 #caja_edad{
 	float:left;
-	margin-left:5px;
-	margin-right:1px;
+	margin-left:10px;
+	margin-right:20px;
 }
 
 
